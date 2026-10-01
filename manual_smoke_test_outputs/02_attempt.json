@@ -1,0 +1,27 @@
+{
+  "run_id": "run_20260908T150802683240Z_84c9ccf9",
+  "attempt_id": "attempt_0001",
+  "status": "completed",
+  "stages": {
+    "part_a": {
+      "status": "completed",
+      "successful_execution_id": "execution_0001"
+    },
+    "part_b": {
+      "status": "completed",
+      "successful_execution_id": "execution_0001"
+    },
+    "part_c": {
+      "status": "completed",
+      "successful_execution_id": "execution_0001"
+    },
+    "part_d": {
+      "status": "completed",
+      "successful_execution_id": "execution_0001"
+    },
+    "inference_bootstrap": {
+      "status": "completed",
+      "successful_execution_id": "execution_0001"
+    }
+  }
+}

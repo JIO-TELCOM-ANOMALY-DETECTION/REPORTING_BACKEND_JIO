@@ -1,0 +1,11 @@
+{
+  "run_id": "run_20260908T150802683240Z_84c9ccf9",
+  "status": "completed",
+  "latest_attempt_id": "attempt_0001",
+  "active_inference_attempt_id": "attempt_0001",
+  "inference_ready": true,
+  "attempts": [
+    "attempt_0001"
+  ],
+  "inference_invocation_count": 1
+}

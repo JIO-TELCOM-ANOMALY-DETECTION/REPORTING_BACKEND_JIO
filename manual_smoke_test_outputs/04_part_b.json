@@ -1,0 +1,412 @@
+{
+  "run_id": "run_20260908T150802683240Z_84c9ccf9",
+  "attempt_id": "attempt_0001",
+  "stage": "part_b",
+  "status": "completed",
+  "execution_id": "execution_0001",
+  "invocation_id": null,
+  "training_attempt_id": null,
+  "generated_at": "2026-09-23T15:45:54.178826+00:00",
+  "summary": {
+    "kpi_count": 1
+  },
+  "artifacts": [
+    {
+      "name": "01_outlier_summary.csv",
+      "kind": "outlier_summary",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_b/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/summaries/01_outlier_summary.csv",
+      "size_bytes": 570,
+      "preview": [
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Jio_Circles": "Maharashtra",
+          "Jio_Cluster": "Pune_Central",
+          "AMF_Site_Name": "AMF_SITE_002",
+          "Outlier_Method": "user_bounds",
+          "Outlier_Direction": "lower_only",
+          "kpi_usability": "valid",
+          "Reference_Points": "8571",
+          "Evaluated_Points": "8571",
+          "Unevaluated_Valid_Points": "0",
+          "Lower_Outliers": "0",
+          "Upper_Outliers": "0",
+          "Total_Outliers": "0",
+          "Q1": "",
+          "Q3": "",
+          "IQR": "",
+          "Lower_Bound_Min": "15.0",
+          "Lower_Bound_Max": "15.0",
+          "Upper_Bound_Min": "",
+          "Upper_Bound_Max": "",
+          "Status": "ok"
+        },
+        {
+          "Composite_ID": "Mumbai | Mumbai_Central | AMF_SITE_001",
+          "Jio_Circles": "Mumbai",
+          "Jio_Cluster": "Mumbai_Central",
+          "AMF_Site_Name": "AMF_SITE_001",
+          "Outlier_Method": "user_bounds",
+          "Outlier_Direction": "lower_only",
+          "kpi_usability": "valid",
+          "Reference_Points": "8571",
+          "Evaluated_Points": "8571",
+          "Unevaluated_Valid_Points": "0",
+          "Lower_Outliers": "0",
+          "Upper_Outliers": "0",
+          "Total_Outliers": "0",
+          "Q1": "",
+          "Q3": "",
+          "IQR": "",
+          "Lower_Bound_Min": "15.0",
+          "Lower_Bound_Max": "15.0",
+          "Upper_Bound_Min": "",
+          "Upper_Bound_Max": "",
+          "Status": "ok"
+        }
+      ]
+    },
+    {
+      "name": "02_original_gap_summary.csv",
+      "kind": "gap_summary",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_b/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/summaries/02_original_gap_summary.csv",
+      "size_bytes": 12212,
+      "preview": [
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "1",
+          "Original_Gap_Start": "2026-01-04 09:15:00",
+          "Original_Gap_End": "2026-01-04 09:15:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "2",
+          "Original_Gap_Start": "2026-01-05 09:45:00",
+          "Original_Gap_End": "2026-01-05 09:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "3",
+          "Original_Gap_Start": "2026-01-07 19:00:00",
+          "Original_Gap_End": "2026-01-07 19:00:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "4",
+          "Original_Gap_Start": "2026-01-09 06:45:00",
+          "Original_Gap_End": "2026-01-09 06:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "5",
+          "Original_Gap_Start": "2026-01-09 10:45:00",
+          "Original_Gap_End": "2026-01-09 10:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "6",
+          "Original_Gap_Start": "2026-01-13 08:15:00",
+          "Original_Gap_End": "2026-01-13 08:15:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "7",
+          "Original_Gap_Start": "2026-01-13 09:45:00",
+          "Original_Gap_End": "2026-01-13 09:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "8",
+          "Original_Gap_Start": "2026-01-13 22:00:00",
+          "Original_Gap_End": "2026-01-13 22:00:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "9",
+          "Original_Gap_Start": "2026-01-14 18:30:00",
+          "Original_Gap_End": "2026-01-14 18:30:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "10",
+          "Original_Gap_Start": "2026-01-16 08:30:00",
+          "Original_Gap_End": "2026-01-16 08:30:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "11",
+          "Original_Gap_Start": "2026-01-18 13:15:00",
+          "Original_Gap_End": "2026-01-18 13:15:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "12",
+          "Original_Gap_Start": "2026-01-19 19:45:00",
+          "Original_Gap_End": "2026-01-19 19:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "13",
+          "Original_Gap_Start": "2026-01-20 06:15:00",
+          "Original_Gap_End": "2026-01-20 06:15:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "14",
+          "Original_Gap_Start": "2026-01-21 17:45:00",
+          "Original_Gap_End": "2026-01-21 17:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "15",
+          "Original_Gap_Start": "2026-01-22 01:45:00",
+          "Original_Gap_End": "2026-01-22 01:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "16",
+          "Original_Gap_Start": "2026-01-24 02:00:00",
+          "Original_Gap_End": "2026-01-24 02:00:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "17",
+          "Original_Gap_Start": "2026-01-24 21:45:00",
+          "Original_Gap_End": "2026-01-24 21:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "18",
+          "Original_Gap_Start": "2026-01-25 04:45:00",
+          "Original_Gap_End": "2026-01-25 04:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "19",
+          "Original_Gap_Start": "2026-01-25 12:15:00",
+          "Original_Gap_End": "2026-01-25 12:15:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        },
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Original_Gap_Number": "20",
+          "Original_Gap_Start": "2026-01-25 23:45:00",
+          "Original_Gap_End": "2026-01-25 23:45:00",
+          "Original_Gap_Size": "1",
+          "Original_Gap_Phase": "1"
+        }
+      ]
+    },
+    {
+      "name": "03_phase_1_summary.csv",
+      "kind": "phase_1_summary",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_b/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/summaries/03_phase_1_summary.csv",
+      "size_bytes": 357,
+      "preview": [
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "kpi_usability": "valid",
+          "status": "processed",
+          "eligible_gaps": "67",
+          "eligible_points": "67",
+          "filled_gaps": "67",
+          "filled_points": "67",
+          "unresolved_gaps": "0",
+          "unresolved_points": "0",
+          "linear_points": "67",
+          "weighted_points": "0",
+          "before_only_points": "0",
+          "after_only_points": "0"
+        },
+        {
+          "Composite_ID": "Mumbai | Mumbai_Central | AMF_SITE_001",
+          "kpi_usability": "valid",
+          "status": "processed",
+          "eligible_gaps": "69",
+          "eligible_points": "69",
+          "filled_gaps": "69",
+          "filled_points": "69",
+          "unresolved_gaps": "0",
+          "unresolved_points": "0",
+          "linear_points": "69",
+          "weighted_points": "0",
+          "before_only_points": "0",
+          "after_only_points": "0"
+        }
+      ]
+    },
+    {
+      "name": "04_phase_2_summary.csv",
+      "kind": "phase_2_summary",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_b/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/summaries/04_phase_2_summary.csv",
+      "size_bytes": 780,
+      "preview": [
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "kpi_usability": "valid",
+          "status": "processed",
+          "primary_gaps": "1",
+          "primary_points": "2",
+          "retry_gaps": "0",
+          "retry_points": "0",
+          "already_resolved_phase1_points": "67",
+          "eligible_points": "2",
+          "filled_points": "2",
+          "unresolved_points": "0",
+          "completely_filled_gaps": "1",
+          "partially_filled_gaps": "0",
+          "unresolved_gaps": "0",
+          "skipped_unusable_points": "0",
+          "phase2_lastweek_exact_only_points": "0",
+          "phase2_lastweek_neighbors_only_points": "0",
+          "phase2_recent_exact_lastweek_exact_points": "2",
+          "phase2_recent_exact_lastweek_neighbors_points": "0",
+          "phase2_recent_exact_only_points": "0",
+          "phase2_recent_neighbors_lastweek_exact_points": "0",
+          "phase2_recent_neighbors_lastweek_neighbors_points": "0",
+          "phase2_recent_neighbors_only_points": "0"
+        },
+        {
+          "Composite_ID": "Mumbai | Mumbai_Central | AMF_SITE_001",
+          "kpi_usability": "valid",
+          "status": "no_phase2_targets",
+          "primary_gaps": "0",
+          "primary_points": "0",
+          "retry_gaps": "0",
+          "retry_points": "0",
+          "already_resolved_phase1_points": "69",
+          "eligible_points": "0",
+          "filled_points": "0",
+          "unresolved_points": "0",
+          "completely_filled_gaps": "0",
+          "partially_filled_gaps": "0",
+          "unresolved_gaps": "0",
+          "skipped_unusable_points": "0",
+          "phase2_lastweek_exact_only_points": "0",
+          "phase2_lastweek_neighbors_only_points": "0",
+          "phase2_recent_exact_lastweek_exact_points": "0",
+          "phase2_recent_exact_lastweek_neighbors_points": "0",
+          "phase2_recent_exact_only_points": "0",
+          "phase2_recent_neighbors_lastweek_exact_points": "0",
+          "phase2_recent_neighbors_lastweek_neighbors_points": "0",
+          "phase2_recent_neighbors_only_points": "0"
+        }
+      ]
+    },
+    {
+      "name": "05_phase_3_summary.csv",
+      "kind": "phase_3_summary",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_b/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/summaries/05_phase_3_summary.csv",
+      "size_bytes": 607,
+      "preview": [
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "kpi_usability": "valid",
+          "status": "no_phase3_targets",
+          "primary_gaps": "0",
+          "primary_points": "0",
+          "retry_gaps": "0",
+          "retry_points": "0",
+          "already_resolved_earlier_points": "69",
+          "eligible_points": "0",
+          "filled_points": "0",
+          "unresolved_points": "0",
+          "completely_filled_gaps": "0",
+          "partially_filled_gaps": "0",
+          "unresolved_gaps": "0",
+          "skipped_unusable_points": "0",
+          "phase3_previous_day_any_type_median_points": "0",
+          "phase3_same_type_exact_median_points": "0",
+          "phase3_same_type_median_level_1_points": "0",
+          "phase3_same_type_median_level_2_points": "0"
+        },
+        {
+          "Composite_ID": "Mumbai | Mumbai_Central | AMF_SITE_001",
+          "kpi_usability": "valid",
+          "status": "no_phase3_targets",
+          "primary_gaps": "0",
+          "primary_points": "0",
+          "retry_gaps": "0",
+          "retry_points": "0",
+          "already_resolved_earlier_points": "69",
+          "eligible_points": "0",
+          "filled_points": "0",
+          "unresolved_points": "0",
+          "completely_filled_gaps": "0",
+          "partially_filled_gaps": "0",
+          "unresolved_gaps": "0",
+          "skipped_unusable_points": "0",
+          "phase3_previous_day_any_type_median_points": "0",
+          "phase3_same_type_exact_median_points": "0",
+          "phase3_same_type_median_level_1_points": "0",
+          "phase3_same_type_median_level_2_points": "0"
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "details": {
+    "kpis": [
+      {
+        "kpi_name": "KPI_L7_XGB_RATIO_EXACT",
+        "prophet_enabled": false,
+        "total_input_rows": 17280,
+        "final_rows": 17280,
+        "duplicate_rows_removed": 0,
+        "inserted_timestamp_rows": 0,
+        "invalid_rows_converted": 0,
+        "valid_series": 2,
+        "invalid_series": 0,
+        "outliers_flagged": 0,
+        "original_gaps": 137,
+        "original_missing_points": 138,
+        "phase_1_filled_points": 136,
+        "phase_2_filled_points": 2,
+        "phase_3_filled_points": 0,
+        "phase_4_safe_filled_points": 0,
+        "unresolved_points": 0
+      }
+    ]
+  }
+}

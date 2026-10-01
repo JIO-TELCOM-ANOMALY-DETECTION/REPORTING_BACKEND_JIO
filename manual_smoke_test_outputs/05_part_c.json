@@ -1,0 +1,185 @@
+{
+  "run_id": "run_20260908T150802683240Z_84c9ccf9",
+  "attempt_id": "attempt_0001",
+  "stage": "part_c",
+  "status": "completed",
+  "execution_id": "execution_0001",
+  "invocation_id": null,
+  "training_attempt_id": null,
+  "generated_at": "2026-09-23T15:45:54.194854+00:00",
+  "summary": {
+    "kpi_count": 1
+  },
+  "artifacts": [
+    {
+      "name": "01_feature_engineering_site_summary.csv",
+      "kind": "site_summary",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_c/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/summaries/01_feature_engineering_site_summary.csv",
+      "size_bytes": 611,
+      "preview": [
+        {
+          "composite_id": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "row_count": "8640",
+          "usability": "valid",
+          "minimum_history_points": "673",
+          "has_sufficient_history": "True",
+          "can_generate_features": "True",
+          "skip_reason": "",
+          "generated_feature_columns": "7",
+          "populated_feature_cells": "59703",
+          "missing_feature_cells": "777",
+          "corrected_history_unavailable_points": "0",
+          "corrected_history_trailing_median_replacements": "0",
+          "corrected_history_forward_fills": "0",
+          "corrected_history_unresolved_points": "0",
+          "minimum_timestamp": "2026-01-01",
+          "maximum_timestamp": "2026-03-31 23:45:00"
+        },
+        {
+          "composite_id": "Mumbai | Mumbai_Central | AMF_SITE_001",
+          "row_count": "8640",
+          "usability": "valid",
+          "minimum_history_points": "673",
+          "has_sufficient_history": "True",
+          "can_generate_features": "True",
+          "skip_reason": "",
+          "generated_feature_columns": "7",
+          "populated_feature_cells": "59703",
+          "missing_feature_cells": "777",
+          "corrected_history_unavailable_points": "0",
+          "corrected_history_trailing_median_replacements": "0",
+          "corrected_history_forward_fills": "0",
+          "corrected_history_unresolved_points": "0",
+          "minimum_timestamp": "2026-01-01",
+          "maximum_timestamp": "2026-03-31 23:45:00"
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "details": {
+    "kpis": [
+      {
+        "kpi_name": "KPI_L7_XGB_RATIO_EXACT",
+        "feature_columns": [
+          "lag_1",
+          "lag_96",
+          "lag_672",
+          "rolling_median_4",
+          "rolling_mad_4",
+          "time_bucket_30m",
+          "is_weekend"
+        ],
+        "total_rows": 17280,
+        "total_sites": 2,
+        "processed_sites": 2,
+        "skipped_invalid_sites": 0,
+        "insufficient_history_sites": 0,
+        "populated_feature_cells": 119406,
+        "missing_feature_cells": 1554,
+        "resolved_config": {
+          "bucket_minutes": 15,
+          "points_per_day": 96,
+          "corrected_history": {
+            "bad_statuses": [
+              2
+            ],
+            "replace_missing_values": true,
+            "replacement_method": "trailing_median",
+            "replacement_window_minutes": 60,
+            "replacement_window_points": null,
+            "minimum_periods": 1,
+            "forward_fill_remaining": true
+          },
+          "corrected_history_window_points": 4,
+          "features": [
+            {
+              "type": "lag",
+              "lags": [
+                1,
+                96,
+                672
+              ],
+              "source": "corrected_history",
+              "point_cleaning": {
+                "enabled": false,
+                "method": "local_median",
+                "bad_statuses": [
+                  2
+                ],
+                "accepted_statuses": [
+                  1,
+                  3,
+                  4
+                ],
+                "half_window_minutes": 720,
+                "half_window_points": null,
+                "minimum_valid_points": 1,
+                "unavailable_strategy": "nan"
+              }
+            },
+            {
+              "type": "rolling",
+              "statistics": [
+                "median",
+                "mad"
+              ],
+              "windows": [
+                4
+              ],
+              "source": "corrected_history",
+              "minimum_periods": null,
+              "std_ddof": 1
+            },
+            {
+              "type": "time_bucket",
+              "bucket_minutes": [
+                30
+              ]
+            },
+            {
+              "type": "calendar",
+              "features": [
+                "is_weekend"
+              ]
+            }
+          ],
+          "feature_columns": [
+            "lag_1",
+            "lag_96",
+            "lag_672",
+            "rolling_median_4",
+            "rolling_mad_4",
+            "time_bucket_30m",
+            "is_weekend"
+          ],
+          "feature_column_groups": [
+            [
+              "lag_1",
+              "lag_96",
+              "lag_672"
+            ],
+            [
+              "rolling_median_4",
+              "rolling_mad_4"
+            ],
+            [
+              "time_bucket_30m"
+            ],
+            [
+              "is_weekend"
+            ]
+          ],
+          "minimum_history_points": 673,
+          "maximum_lookback_points": 672,
+          "uses_corrected_history": true,
+          "uses_local_median_cleaning": false,
+          "requires_status_column": true,
+          "retain_original_columns": true,
+          "save_intermediate_outputs": false
+        }
+      }
+    ]
+  }
+}

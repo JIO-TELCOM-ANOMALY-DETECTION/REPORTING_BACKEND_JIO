@@ -1,0 +1,147 @@
+{
+  "run_id": "run_20260908T150802683240Z_84c9ccf9",
+  "attempt_id": "attempt_0001",
+  "stage": "part_a",
+  "status": "completed",
+  "execution_id": "execution_0001",
+  "invocation_id": null,
+  "training_attempt_id": null,
+  "generated_at": "2026-09-23T15:45:54.170265+00:00",
+  "summary": {
+    "kpi_count": 1,
+    "prepared_dataset_count": 1
+  },
+  "artifacts": [
+    {
+      "name": "KPI_L7_XGB_RATIO_EXACT_unique_site_row_counts.csv",
+      "kind": "site_summary:summary_file",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_a/execution_0001/outputs/summaries/KPI_L7_XGB_RATIO_EXACT/KPI_L7_XGB_RATIO_EXACT_unique_site_row_counts.csv",
+      "size_bytes": 134,
+      "preview": [
+        {
+          "Jio_Circles": "Maharashtra",
+          "Jio_Cluster": "Pune_Central",
+          "AMF_Site_Name": "AMF_SITE_002",
+          "Row_Count": "8640"
+        },
+        {
+          "Jio_Circles": "Mumbai",
+          "Jio_Cluster": "Mumbai_Central",
+          "AMF_Site_Name": "AMF_SITE_001",
+          "Row_Count": "8640"
+        }
+      ]
+    },
+    {
+      "name": "summary.txt",
+      "kind": "integrity:summary_file",
+      "format": "txt",
+      "relative_path": "attempts/attempt_0001/stages/part_a/execution_0001/outputs/summaries/KPI_L7_XGB_RATIO_EXACT/summary.txt",
+      "size_bytes": 6757,
+      "preview": null
+    },
+    {
+      "name": "series_summary.csv",
+      "kind": "integrity:series_summary_file",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_a/execution_0001/outputs/summaries/KPI_L7_XGB_RATIO_EXACT/series_summary.csv",
+      "size_bytes": 522,
+      "preview": [
+        {
+          "Composite_ID": "Maharashtra | Pune_Central | AMF_SITE_002",
+          "Jio_Circles": "Maharashtra",
+          "Jio_Cluster": "Pune_Central",
+          "AMF_Site_Name": "AMF_SITE_002",
+          "Expected_Timestamps": "8640",
+          "Observed_Timestamps": "8640",
+          "Missing_Timestamps": "0",
+          "Coverage_Percent": "100.0",
+          "Gap_Events": "0",
+          "Gap_1_15min": "0",
+          "Gap_2_4_30_60min": "0",
+          "Gap_5_24_75min_6hr": "0",
+          "Gap_25_96_6hr_24hr": "0",
+          "Gap_GT_96_GT_24hr": "0",
+          "Longest_Gap": "0",
+          "NaN_Values": "69",
+          "Duplicate_Timestamps": "0",
+          "Off_Grid_Timestamps": "0"
+        },
+        {
+          "Composite_ID": "Mumbai | Mumbai_Central | AMF_SITE_001",
+          "Jio_Circles": "Mumbai",
+          "Jio_Cluster": "Mumbai_Central",
+          "AMF_Site_Name": "AMF_SITE_001",
+          "Expected_Timestamps": "8640",
+          "Observed_Timestamps": "8640",
+          "Missing_Timestamps": "0",
+          "Coverage_Percent": "100.0",
+          "Gap_Events": "0",
+          "Gap_1_15min": "0",
+          "Gap_2_4_30_60min": "0",
+          "Gap_5_24_75min_6hr": "0",
+          "Gap_25_96_6hr_24hr": "0",
+          "Gap_GT_96_GT_24hr": "0",
+          "Longest_Gap": "0",
+          "NaN_Values": "69",
+          "Duplicate_Timestamps": "0",
+          "Off_Grid_Timestamps": "0"
+        }
+      ]
+    },
+    {
+      "name": "gap_details.csv",
+      "kind": "integrity:gap_details_file",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_a/execution_0001/outputs/summaries/KPI_L7_XGB_RATIO_EXACT/gap_details.csv",
+      "size_bytes": 69,
+      "preview": null
+    },
+    {
+      "name": "global_missing_timestamps.csv",
+      "kind": "integrity:global_missing_file",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_a/execution_0001/outputs/summaries/KPI_L7_XGB_RATIO_EXACT/global_missing_timestamps.csv",
+      "size_bytes": 19,
+      "preview": null
+    },
+    {
+      "name": "duplicate_timestamp_details.csv",
+      "kind": "integrity:duplicate_details_file",
+      "format": "csv",
+      "relative_path": "attempts/attempt_0001/stages/part_a/execution_0001/outputs/summaries/KPI_L7_XGB_RATIO_EXACT/duplicate_timestamp_details.csv",
+      "size_bytes": 36,
+      "preview": null
+    }
+  ],
+  "warnings": [],
+  "details": {
+    "kpis": [
+      {
+        "kpi_name": "KPI_L7_XGB_RATIO_EXACT",
+        "site_analysis": {
+          "total_rows": 17280,
+          "total_unique_sites": 2,
+          "rows_with_missing_site_identity": 0
+        },
+        "server_validation": {
+          "check_skipped": false,
+          "total_sites": 2,
+          "consistent_site_count": 2,
+          "inconsistent_site_count": 0,
+          "unresolved_site_count": 0,
+          "rows_with_missing_server": 0
+        },
+        "integrity": {
+          "total_sites": 2,
+          "expected_timestamps_per_site": 8640,
+          "total_missing_timestamps": 0,
+          "total_gap_events": 0,
+          "rows_with_invalid_timestamp": 0,
+          "rows_outside_expected_timeline": 0
+        }
+      }
+    ]
+  }
+}

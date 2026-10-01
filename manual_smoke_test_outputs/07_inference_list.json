@@ -1,0 +1,23 @@
+{
+  "run_id": "run_20260908T150802683240Z_84c9ccf9",
+  "invocations": [
+    {
+      "invocation_id": "run_20260908T150802683240Z_84c9ccf9_20260908T150934776096Z_bee903a8",
+      "training_attempt_id": "attempt_0001",
+      "status": "completed",
+      "started_at_utc": "2026-09-08T15:09:39.332819+00:00",
+      "completed_at_utc": "2026-09-08T15:09:39.350232+00:00",
+      "metrics": {
+        "model_type": "xgboost",
+        "inference_start": "2026-04-01T08:00:00+00:00",
+        "inference_end_exclusive": "2026-04-02T08:00:00+00:00",
+        "total_saved_series": 2,
+        "completed_series": 2,
+        "skipped_series_count": 0,
+        "unmodelled_part_c_series": 0,
+        "output_count": 2,
+        "history_committed": true
+      }
+    }
+  ]
+}

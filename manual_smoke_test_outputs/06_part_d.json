@@ -1,0 +1,384 @@
+{
+  "run_id": "run_20260908T150802683240Z_84c9ccf9",
+  "attempt_id": "attempt_0001",
+  "stage": "part_d",
+  "status": "completed",
+  "execution_id": "execution_0001",
+  "invocation_id": null,
+  "training_attempt_id": null,
+  "generated_at": "2026-09-23T15:45:54.211983+00:00",
+  "summary": {
+    "model_type": "xgboost",
+    "kpi_count": 1
+  },
+  "artifacts": [
+    {
+      "name": "metadata.json",
+      "kind": "metadata",
+      "format": "json",
+      "relative_path": "attempts/attempt_0001/stages/part_d/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/training/metadata.json",
+      "size_bytes": 2301,
+      "preview": null
+    },
+    {
+      "name": "decision_settings.json",
+      "kind": "decision_settings",
+      "format": "json",
+      "relative_path": "attempts/attempt_0001/stages/part_d/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/training/decision_settings.json",
+      "size_bytes": 1435,
+      "preview": null
+    },
+    {
+      "name": "training_summary.json",
+      "kind": "training_summary",
+      "format": "json",
+      "relative_path": "attempts/attempt_0001/stages/part_d/execution_0001/outputs/KPI_L7_XGB_RATIO_EXACT/training/training_summary.json",
+      "size_bytes": 7414,
+      "preview": null
+    }
+  ],
+  "warnings": [],
+  "details": {
+    "training_records": [
+      {
+        "kpi_name": "KPI_L7_XGB_RATIO_EXACT",
+        "status": "completed",
+        "model_type": "xgboost",
+        "minimum_history_points": 673,
+        "total_series": 2,
+        "valid_series": 2,
+        "trained_series": 2,
+        "skipped_invalid_series": 0,
+        "model_feature_columns": [
+          "lag_1",
+          "lag_96",
+          "lag_672",
+          "rolling_median_4",
+          "rolling_mad_4",
+          "time_bucket_30m",
+          "is_weekend"
+        ],
+        "target_column": "computedValue",
+        "metadata": {
+          "model_type": "xgboost",
+          "saved_at_utc": "2026-09-08T15:08:08.525517+00:00",
+          "source_part_c_dataset": "[internal path]",
+          "source_dataset_name": "KPI_L7_XGB_RATIO_EXACT_feature_engineered.csv",
+          "total_source_rows": 17280,
+          "split_plan_series_count": 2,
+          "trained_series_count": 2,
+          "feature_count": 7,
+          "target_column": "computedValue",
+          "hyperparameter_tuning_enabled": false,
+          "hyperparameter_tuning_method": null,
+          "series_models": {
+            "Maharashtra__Pune_Central__AMF_SITE_002__5cb9623f91": {
+              "identity": {
+                "circle": "Maharashtra",
+                "cluster": "Pune_Central",
+                "site_name": "AMF_SITE_002"
+              },
+              "model_file": "model\\Maharashtra__Pune_Central__AMF_SITE_002__5cb9623f91\\final_model.json"
+            },
+            "Mumbai__Mumbai_Central__AMF_SITE_001__30af2861fc": {
+              "identity": {
+                "circle": "Mumbai",
+                "cluster": "Mumbai_Central",
+                "site_name": "AMF_SITE_001"
+              },
+              "model_file": "model\\Mumbai__Mumbai_Central__AMF_SITE_001__30af2861fc\\final_model.json"
+            }
+          },
+          "library_versions": {
+            "numpy": "2.4.6",
+            "pandas": "3.0.3",
+            "xgboost": "3.3.0"
+          },
+          "run_metadata": {
+            "minimum_history_points_from_part_c_runner": 673,
+            "total_series": 2,
+            "valid_series": 2,
+            "trained_series": 2,
+            "skipped_invalid_series": 0,
+            "skipped_series": [],
+            "parent_pipeline_metadata": {
+              "kpi_name": "KPI_L7_XGB_RATIO_EXACT",
+              "part_c_output_directory": "[internal path]",
+              "part_c_final_dataset": "[internal path]",
+              "hyperparameter_tuning_enabled": false,
+              "hyperparameter_tuning_method": null
+            }
+          }
+        },
+        "decision_settings": {
+          "Maharashtra__Pune_Central__AMF_SITE_002__5cb9623f91": {
+            "identity": {
+              "circle": "Maharashtra",
+              "cluster": "Pune_Central",
+              "site_name": "AMF_SITE_002"
+            },
+            "decision_settings": {
+              "method": "residual_quantile",
+              "residual_definition": "actual_minus_prediction",
+              "threshold_direction": "both",
+              "residual_quantile": 0.99,
+              "lower_quantile": 0.010000000000000009,
+              "upper_quantile": 0.99,
+              "lower_threshold": -0.8495503954098266,
+              "upper_threshold": 0.8269506122390996,
+              "quantile_method": "linear",
+              "lower_comparison": "residual <= lower_threshold",
+              "upper_comparison": "residual >= upper_threshold"
+            }
+          },
+          "Mumbai__Mumbai_Central__AMF_SITE_001__30af2861fc": {
+            "identity": {
+              "circle": "Mumbai",
+              "cluster": "Mumbai_Central",
+              "site_name": "AMF_SITE_001"
+            },
+            "decision_settings": {
+              "method": "residual_quantile",
+              "residual_definition": "actual_minus_prediction",
+              "threshold_direction": "both",
+              "residual_quantile": 0.99,
+              "lower_quantile": 0.010000000000000009,
+              "upper_quantile": 0.99,
+              "lower_threshold": -0.8200089131979682,
+              "upper_threshold": 0.8336137911303202,
+              "quantile_method": "linear",
+              "lower_comparison": "residual <= lower_threshold",
+              "upper_comparison": "residual >= upper_threshold"
+            }
+          }
+        },
+        "training_summary": {
+          "Maharashtra__Pune_Central__AMF_SITE_002__5cb9623f91": {
+            "identity": {
+              "circle": "Maharashtra",
+              "cluster": "Pune_Central",
+              "site_name": "AMF_SITE_002"
+            },
+            "tuning_summary": [],
+            "training_summary": {
+              "series_identity": {
+                "circle": "Maharashtra",
+                "cluster": "Pune_Central",
+                "site_name": "AMF_SITE_002"
+              },
+              "tuning_performed": false,
+              "feature_columns": [
+                "lag_1",
+                "lag_96",
+                "lag_672",
+                "rolling_median_4",
+                "rolling_mad_4",
+                "time_bucket_30m",
+                "is_weekend"
+              ],
+              "feature_count": 7,
+              "target_column": "computedValue",
+              "raw_train_rows": 5576,
+              "usable_train_rows": 5576,
+              "raw_validation_rows": 0,
+              "usable_validation_rows": 0,
+              "final_fit_rows": 5576,
+              "selected_candidate_number": null,
+              "best_tree_count": 800,
+              "selected_hyperparameters": {
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "min_child_weight": 5,
+                "subsample": 0.8,
+                "colsample_bytree": 0.8,
+                "reg_alpha": 0.0,
+                "reg_lambda": 1.0,
+                "gamma": 0.0
+              },
+              "validation_metrics": null,
+              "final_fit_metrics": {
+                "mae": 0.24396644863306424,
+                "rmse": 0.3070501744173987,
+                "median_residual": 0.0010287023307427035,
+                "mean_residual": 0.000644688885919339,
+                "residual_mad": 0.205596503121388
+              }
+            },
+            "calibration_summary": {
+              "series_identity": {
+                "circle": "Maharashtra",
+                "cluster": "Pune_Central",
+                "site_name": "AMF_SITE_002"
+              },
+              "raw_calibration_rows": 1195,
+              "usable_calibration_rows": 1195,
+              "threshold_direction": "both",
+              "residual_definition": "actual_minus_prediction",
+              "residual_quantile": 0.99,
+              "lower_quantile": 0.010000000000000009,
+              "upper_quantile": 0.99,
+              "lower_threshold": -0.8495503954098266,
+              "upper_threshold": 0.8269506122390996,
+              "quantile_method": "linear",
+              "residual_mean": -0.0016871831159183772,
+              "residual_median": -0.0010413279865133518,
+              "residual_std": 0.35360925747897176,
+              "residual_mad": 0.2484411168215459,
+              "residual_min": -1.266682817729901,
+              "residual_max": 1.039439197890026,
+              "calibration_anomaly_count": 24,
+              "calibration_anomaly_rate": 0.0200836820083682,
+              "calibration_mae": 0.282462241622133,
+              "calibration_rmse": 0.35361328250179797
+            },
+            "testing_summary": {
+              "series_identity": {
+                "circle": "Maharashtra",
+                "cluster": "Pune_Central",
+                "site_name": "AMF_SITE_002"
+              },
+              "raw_test_rows": 1196,
+              "usable_test_rows": 1196,
+              "test_start_timestamp": "2026-03-19T13:00:00",
+              "test_end_timestamp": "2026-03-31T23:45:00",
+              "feature_count": 7,
+              "target_column": "computedValue",
+              "residual_definition": "actual_minus_prediction",
+              "threshold_direction": "both",
+              "lower_threshold": -0.8495503954098266,
+              "upper_threshold": 0.8269506122390996,
+              "mae": 0.273549103604829,
+              "rmse": 0.345827112420245,
+              "residual_mean": -0.023259322997316156,
+              "residual_median": -0.0412683706809176,
+              "residual_std": 0.34504404875121564,
+              "residual_mad": 0.22032045918490795,
+              "residual_min": -1.2158490875288166,
+              "residual_max": 1.191716831359301,
+              "anomaly_count": 23,
+              "anomaly_rate": 0.019230769230769232,
+              "lower_anomaly_count": 10,
+              "upper_anomaly_count": 13,
+              "status_counts": {
+                "1": 1191,
+                "3": 5
+              }
+            }
+          },
+          "Mumbai__Mumbai_Central__AMF_SITE_001__30af2861fc": {
+            "identity": {
+              "circle": "Mumbai",
+              "cluster": "Mumbai_Central",
+              "site_name": "AMF_SITE_001"
+            },
+            "tuning_summary": [],
+            "training_summary": {
+              "series_identity": {
+                "circle": "Mumbai",
+                "cluster": "Mumbai_Central",
+                "site_name": "AMF_SITE_001"
+              },
+              "tuning_performed": false,
+              "feature_columns": [
+                "lag_1",
+                "lag_96",
+                "lag_672",
+                "rolling_median_4",
+                "rolling_mad_4",
+                "time_bucket_30m",
+                "is_weekend"
+              ],
+              "feature_count": 7,
+              "target_column": "computedValue",
+              "raw_train_rows": 5576,
+              "usable_train_rows": 5576,
+              "raw_validation_rows": 0,
+              "usable_validation_rows": 0,
+              "final_fit_rows": 5576,
+              "selected_candidate_number": null,
+              "best_tree_count": 800,
+              "selected_hyperparameters": {
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "min_child_weight": 5,
+                "subsample": 0.8,
+                "colsample_bytree": 0.8,
+                "reg_alpha": 0.0,
+                "reg_lambda": 1.0,
+                "gamma": 0.0
+              },
+              "validation_metrics": null,
+              "final_fit_metrics": {
+                "mae": 0.2428046460113875,
+                "rmse": 0.30619301287093953,
+                "median_residual": 0.0037016050027034453,
+                "mean_residual": 0.0002209171590628085,
+                "residual_mad": 0.20514048116613992
+              }
+            },
+            "calibration_summary": {
+              "series_identity": {
+                "circle": "Mumbai",
+                "cluster": "Mumbai_Central",
+                "site_name": "AMF_SITE_001"
+              },
+              "raw_calibration_rows": 1195,
+              "usable_calibration_rows": 1195,
+              "threshold_direction": "both",
+              "residual_definition": "actual_minus_prediction",
+              "residual_quantile": 0.99,
+              "lower_quantile": 0.010000000000000009,
+              "upper_quantile": 0.99,
+              "lower_threshold": -0.8200089131979682,
+              "upper_threshold": 0.8336137911303202,
+              "quantile_method": "linear",
+              "residual_mean": -0.0030653641020900917,
+              "residual_median": 0.003602379020179569,
+              "residual_std": 0.3569023737114389,
+              "residual_mad": 0.22691517260761174,
+              "residual_min": -1.0694600772038996,
+              "residual_max": 0.9809860680980123,
+              "calibration_anomaly_count": 24,
+              "calibration_anomaly_rate": 0.0200836820083682,
+              "calibration_mae": 0.2833725914049778,
+              "calibration_rmse": 0.3569155373725526
+            },
+            "testing_summary": {
+              "series_identity": {
+                "circle": "Mumbai",
+                "cluster": "Mumbai_Central",
+                "site_name": "AMF_SITE_001"
+              },
+              "raw_test_rows": 1196,
+              "usable_test_rows": 1196,
+              "test_start_timestamp": "2026-03-19T13:00:00",
+              "test_end_timestamp": "2026-03-31T23:45:00",
+              "feature_count": 7,
+              "target_column": "computedValue",
+              "residual_definition": "actual_minus_prediction",
+              "threshold_direction": "both",
+              "lower_threshold": -0.8200089131979682,
+              "upper_threshold": 0.8336137911303202,
+              "mae": 0.27248340296188567,
+              "rmse": 0.34177098849821186,
+              "residual_mean": -0.017547278836938723,
+              "residual_median": -0.021339424764807546,
+              "residual_std": 0.34132023318939586,
+              "residual_mad": 0.23425844201575075,
+              "residual_min": -1.0433261892350316,
+              "residual_max": 1.1582063977617025,
+              "anomaly_count": 19,
+              "anomaly_rate": 0.01588628762541806,
+              "lower_anomaly_count": 11,
+              "upper_anomaly_count": 8,
+              "status_counts": {
+                "1": 1187,
+                "3": 9
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
