@@ -89,6 +89,4 @@ Fixture tests cover reports, read-only access, pagination/filtering, malformed/m
 - Temporary-directory permission error in tests: use an environment that permits fixture creation and cleanup.
 - Pagination bounds response size, but filtering/sorting scans referenced CSVs and holds matching rows in memory; there is no database-backed reporting index.
 
-## Information Needed / Assumptions
 
-No Docker/Compose files were found. Confirm supported Python versions and intended production/shared-storage deployment details. These instructions establish local development only.
