@@ -5,7 +5,7 @@ from app.core.path_resolver import ArtifactPathResolver
 from app.readers.common import now, public_value
 from app.readers.execution_resolver import ExecutionResolver
 from app.readers.manifest_reader import ManifestReader
-from app.readers import part_a, part_b, part_c, part_d, inference
+from app.readers import part_a, part_b, part_c, part_d, inference, inference_results
 from app.schemas.common import ReportEnvelope
 
 
@@ -40,3 +40,11 @@ class ReportService:
         manifest, root = self.manifests.load(run_id)
         record, summary, details, artifacts = inference.read(manifest, root, invocation_id, self.resolver)
         return ReportEnvelope(run_id=run_id, stage="inference", status="completed", invocation_id=invocation_id, training_attempt_id=record.get("training_attempt_id"), generated_at=now(), summary=public_value(summary), artifacts=artifacts, details=public_value(details))
+
+    def inference_results(self, run_id: str, invocation_id: str, **params) -> dict:
+        manifest, root = self.manifests.load(run_id)
+        return inference_results.page(manifest, root, invocation_id, self.resolver, **params)
+
+    def inference_filter_options(self, run_id: str, invocation_id: str) -> dict:
+        manifest, root = self.manifests.load(run_id)
+        return inference_results.options(manifest, root, invocation_id, self.resolver)

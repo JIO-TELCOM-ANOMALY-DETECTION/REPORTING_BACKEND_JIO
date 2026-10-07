@@ -44,12 +44,12 @@ class ReportingFixtureTests(unittest.TestCase):
         b_csv = self.write("b/outliers.csv", "site,count\na,0\n")
         c_csv = self.write("c/sites.csv", "site,status\na,valid\n")
         d_json = self.write("d/training/training_summary.json", '{"training_summary":{"mae":1.0}}')
-        series = self.write("inference/attempt_0001/inference_results/inv_1/series.csv", "time,anomaly\nt1,false\n")
+        series = self.write("inference/attempt_0001/inference_results/inv_1/series.csv", "kpi_name,series_key,circle,cluster,site_name,timestamp,actual,is_anomaly\nKPI,site,West,C1,Site A,2026-01-01T00:00:00+00:00,10,False\nKPI,site,West,C1,Site A,2026-01-01T00:15:00+00:00,11,True\nKPI,site,West,C1,Site A,2026-01-01T00:30:00+00:00,12,True\n")
         request_result = self.write("inference/attempt_0001/requests/request_000001/result.json", json.dumps({
             "run_id": "run_valid", "invocation_id": "inv_1", "model_type": "xgboost", "inference_days": 1,
             "inference_start": "2026-01-01T00:00:00+00:00", "inference_end_exclusive": "2026-01-02T00:00:00+00:00",
             "total_saved_series": 1, "completed_series": 1, "skipped_series_count": 0, "unmodelled_part_c_series": 0,
-            "outputs": [{"kpi_name": "KPI", "series_key": "site", "result_file": str(series), "anomaly_count": 0, "anomaly_rate": 0.0}], "skipped_series": []
+            "outputs": [{"kpi_name": "KPI", "series_key": "site", "identity": ["West", "C1", "Site A"], "result_file": str(series), "total_window_rows": 3, "scorable_rows": 3, "anomaly_count": 2, "anomaly_rate": 2/3}], "skipped_series": []
         }))
         stages = {
             "part_a": self._stage("part_a", {"handoff_schema_version": "1.0", "stage": "part_a", "payload": {"eda_result": {"kpi_results": [{"prepared_dataset": {"kpi_name": "KPI"}, "site_analysis": {"summary_file": str(a_csv), "total_rows": 1, "total_unique_sites": 1}, "server_validation": {"total_sites": 1}, "data_integrity": {"summary_file": str(text), "series_summary_file": str(a_csv), "gap_details_file": str(a_csv), "global_missing_file": str(a_csv), "duplicate_details_file": str(a_csv), "total_sites": 1}}]}}}),
@@ -74,6 +74,76 @@ class ReportingFixtureTests(unittest.TestCase):
         self.assertEqual(report.training_attempt_id, self.attempt)
         self.assertEqual(report.summary["completed_series"], 1)
         self.assertEqual(len(report.artifacts), 1)
+        self.assertEqual(report.summary["total_processed_rows"], 3)
+        self.assertEqual(report.summary["total_anomalies"], 2)
+        self.assertEqual(report.summary["normal_row_count"], 1)
+
+    def test_inference_result_modes_pagination_sort_and_filters(self) -> None:
+        result = self.service.inference_results("run_valid", "inv_1")
+        self.assertEqual(result["pagination"]["total_items"], 2)
+        self.assertTrue(all(row["is_anomaly"] == "True" for row in result["items"]))
+        first = self.service.inference_results("run_valid", "inv_1", mode="all", page_size=2)
+        self.assertEqual(first["pagination"]["total_items"], 3)
+        self.assertTrue(first["pagination"]["has_next"])
+        last = self.service.inference_results("run_valid", "inv_1", mode="all", page=2, page_size=2)
+        self.assertEqual(len(last["items"]), 1)
+        self.assertFalse(last["pagination"]["has_next"])
+        empty = self.service.inference_results("run_valid", "inv_1", mode="all", page=3, page_size=2)
+        self.assertEqual(empty["items"], [])
+        filtered = self.service.inference_results("run_valid", "inv_1", mode="all", circle="west", site_name="Site A", kpi="KPI", start_time="2026-01-01T00:15:00+00:00", status="True", sort_by="actual", sort_order="desc")
+        self.assertEqual([row["actual"] for row in filtered["items"]], ["12", "11"])
+        self.assertEqual(self.service.inference_results("run_valid", "inv_1", start_time="2026-01-01T00:15")["pagination"]["total_items"], 2)
+        self.assertEqual(self.service.inference_filter_options("run_valid", "inv_1")["circle"], ["West"])
+
+    def test_inference_results_reject_invalid_inputs_and_artifacts(self) -> None:
+        from app.core.exceptions import ValidationError
+        for params in ({"page": 0}, {"page_size": 101}, {"mode": "wrong"}, {"sort_by": "../../secret"}, {"start_time": "bad"}):
+            with self.assertRaises(ValidationError): self.service.inference_results("run_valid", "inv_1", **params)
+        with self.assertRaises(NotFoundError): self.service.inference_results("run_valid", "missing")
+        with self.assertRaises(NotFoundError): self.service.inference_results("missing_run", "inv_1")
+        before = hashlib.sha256((self.run / "manifest.json").read_bytes()).hexdigest()
+        self.service.inference_results("run_valid", "inv_1", mode="all")
+        self.assertEqual(before, hashlib.sha256((self.run / "manifest.json").read_bytes()).hexdigest())
+        csv_path = self.run / "inference/attempt_0001/inference_results/inv_1/series.csv"
+        csv_path.write_text("", encoding="utf-8")
+        with self.assertRaises(ArtifactError): self.service.inference_results("run_valid", "inv_1")
+        csv_path.unlink()
+        with self.assertRaises(ArtifactError): self.service.inference_results("run_valid", "inv_1")
+        self.manifest["inference"]["invocations"]["inv_1"]["result_file"] = str(Path(self.temp.name) / "outside.json")
+        self.write("manifest.json", json.dumps(self.manifest))
+        with self.assertRaises(ArtifactError): self.service.inference_results("run_valid", "inv_1")
+
+    def test_inference_results_reject_unfinished_invocations_and_output_traversal(self) -> None:
+        self.manifest["inference"]["invocations"]["inv_1"]["status"] = "failed"
+        self.write("manifest.json", json.dumps(self.manifest))
+        with self.assertRaises(ArtifactError) as unfinished:
+            self.service.inference_results("run_valid", "inv_1")
+        self.assertEqual(unfinished.exception.error_code, "INFERENCE_NOT_COMPLETED")
+        self.manifest["inference"]["invocations"]["inv_1"]["status"] = "completed"
+        self.write("manifest.json", json.dumps(self.manifest))
+        path = self.run / "inference/attempt_0001/requests/request_000001/result.json"
+        snapshot = json.loads(path.read_text(encoding="utf-8"))
+        snapshot["outputs"][0]["result_file"] = str(Path(self.temp.name) / "outside.csv")
+        path.write_text(json.dumps(snapshot), encoding="utf-8")
+        with self.assertRaises(ArtifactError) as unsafe:
+            self.service.inference_results("run_valid", "inv_1")
+        self.assertEqual(unsafe.exception.error_code, "UNSAFE_ARTIFACT_PATH")
+
+    def test_malformed_outputs_return_artifact_error_instead_of_type_error(self) -> None:
+        result_path = self.run / "inference/attempt_0001/requests/request_000001/result.json"
+        payload = json.loads(result_path.read_text(encoding="utf-8"))
+        payload["outputs"] = None
+        result_path.write_text(json.dumps(payload), encoding="utf-8")
+        with self.assertRaises(ArtifactError) as report_error:
+            self.service.inference_report("run_valid", "inv_1")
+        self.assertEqual(report_error.exception.error_code, "MALFORMED_INFERENCE_OUTPUTS")
+        with self.assertRaises(ArtifactError) as page_error:
+            self.service.inference_results("run_valid", "inv_1")
+        self.assertEqual(page_error.exception.error_code, "MALFORMED_INFERENCE_OUTPUTS")
+        result_path.write_text("{", encoding="utf-8")
+        with self.assertRaises(ArtifactError) as malformed_json:
+            self.service.inference_results("run_valid", "inv_1")
+        self.assertEqual(malformed_json.exception.error_code, "MALFORMED_JSON")
 
     def test_unknown_run_attempt_stage_and_invocation(self) -> None:
         with self.assertRaises(NotFoundError): self.service.run("run_missing")
